@@ -40,12 +40,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: "npm"
-          cache-dependency-path: "${{ matrix.component }}/package-lock.json"
 
       - name: Install dependencies
         working-directory: ${{ matrix.component }}
-        run: npm ci
+        run: |
+          if [ ! -f package-lock.json ]; then
+            npm install
+          fi
+          npm ci
 
       - name: Run ESLint
         working-directory: ${{ matrix.component }}
@@ -69,12 +71,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: "npm"
-          cache-dependency-path: "${{ matrix.component }}/package-lock.json"
 
       - name: Install dependencies
         working-directory: ${{ matrix.component }}
-        run: npm ci
+        run: |
+          if [ ! -f package-lock.json ]; then
+            npm install
+          fi
+          npm ci
 
       # npm audit for known vulnerabilities (fail on high/critical)
       - name: npm audit
