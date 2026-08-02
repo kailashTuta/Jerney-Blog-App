@@ -27,7 +27,7 @@ spec:
           effect: "NoSchedule"
       containers:
         - name: frontend
-          image: kailashtuta/jerney-frontend:latest
+          image: ghcr.io/kailashTuta/Jerney-Blog-App/jerney-frontend:1fc8e88
           ports:
             - containerPort: 8080
               protocol: TCP

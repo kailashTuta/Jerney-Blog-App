@@ -41,7 +41,7 @@ spec:
               echo "DB is ready!"
       containers:
         - name: backend
-          image: kailashtuta/jerney-backend:latest
+          image: ghcr.io/kailashTuta/Jerney-Blog-App/jerney-backend:1fc8e88
           ports:
             - containerPort: 5000
               protocol: TCP
